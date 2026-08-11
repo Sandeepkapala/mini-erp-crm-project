@@ -1,0 +1,171 @@
+{
+  "info": {
+    "name": "Mini ERP CRM API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5000/api"
+    },
+    {
+      "key": "token",
+      "value": ""
+    }
+  ],
+  "item": [
+    {
+      "name": "Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"email\":\"admin@erp.local\",\"password\":\"Password123\"}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/auth/login",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "auth",
+            "login"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Dashboard",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/dashboard",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "dashboard"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Customers",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/customers?search=Rajesh",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "customers"
+          ],
+          "query": [
+            {
+              "key": "search",
+              "value": "Rajesh"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Products",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/products",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "products"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Create Draft Challan",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"customerId\":1,\"status\":\"Draft\",\"items\":[{\"productId\":1,\"quantity\":2}]}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/challans",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "challans"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Create Confirmed Challan",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"customerId\":1,\"status\":\"Confirmed\",\"items\":[{\"productId\":1,\"quantity\":2}]}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/challans",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "challans"
+          ]
+        }
+      }
+    }
+  ]
+}
