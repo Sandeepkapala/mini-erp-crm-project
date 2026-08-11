@@ -56,11 +56,14 @@ npm run dev
 Frontend: Vite will show the local URL, normally `http://localhost:5173`.
 
 ## Test credentials
-All seeded accounts use password `Password123`:
-- Admin: admin@erp.local
-- Sales: sales@erp.local
-- Warehouse: warehouse@erp.local
-- Accounts: accounts@erp.local
+- Admin: admin@admin.com
+- password: Password123
+- Sales: sales@sales.com
+- password: Sales123
+- Warehouse: warehouse@warehouse.com
+- password: Warehouse123
+- Accounts: accounts@accounts.com
+- password: Accounts123
 
 ## API summary
 - POST `/api/auth/login`
