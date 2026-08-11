@@ -251,7 +251,7 @@ function App() {
     );
   }
 
-  const allLinks = [
+  const allLinks: [string, string, any, string[]][] = [
   ['/', 'Dashboard', LayoutDashboard, ['Admin', 'Sales', 'Warehouse', 'Accounts']],
   ['/customers', 'Customers', Users, ['Admin', 'Sales']],
   ['/products', 'Products', Package, ['Admin', 'Warehouse']],
@@ -259,7 +259,7 @@ function App() {
 ];
 
 const links = allLinks.filter(
-  ([, , , roles]: any) => roles.includes(user.role)
+  ([, , , roles]) => roles.includes(user.role)
 );
 const allowedPaths = links.map(
   ([path]: any) => path

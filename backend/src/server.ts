@@ -544,7 +544,7 @@ app.post(
       await client.query('BEGIN');
 
       const ids = [
-        ...new Set(x.items.map(i => i.productId))
+        ...new Set(x.items.map((i: { productId: number }) => i.productId))
       ];
 
       const products = await client.query(
@@ -591,7 +591,7 @@ app.post(
           num,
           x.customerId,
           x.status,
-          x.items.reduce((a, b) => a + b.quantity, 0),
+          x.items.reduce((a: number, b: { quantity: number }) => a + b.quantity, 0),
           req.user!.id
         ]
       );
