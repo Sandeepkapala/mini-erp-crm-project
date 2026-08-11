@@ -16,6 +16,8 @@ build/
 **/build/
 .vite/
 **/.vite/
+*.tsbuildinfo
+**/*.tsbuildinfo
 
 # System / IDE
 .DS_Store
